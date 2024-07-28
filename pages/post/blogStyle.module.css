@@ -1,0 +1,62 @@
+.mainblog {
+	max-width: 600px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 2rem;
+	box-sizing: border-box;
+	background-color: #27272a;
+}
+
+.headerblog {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.8rem;
+	color: #a1a1aa;
+}
+
+.divider {
+	flex-grow: 1;
+	height: 0.2px;
+	background-color: #71717a;
+}
+
+.userPost {
+	max-width: 600px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem;
+	box-sizing: border-box;
+	background-color: #18181b;
+}
+
+.userImage {
+	flex-grow: 1;
+	flex-shring: 0;
+	width: 100px;
+	height: 100px;
+
+	border-radius: 100px;
+}
+
+.userDescription {
+	margin-top: 1rem;
+	font-size: 0.8rem;
+	color: #a1a1aa;
+}
+
+@media (max-width: 600px) {
+	.mainblog {
+		padding: 1rem;
+	}
+
+	.userPost {
+		padding: 1rem;
+		gap: 1rem;
+		justify-content: center;
+	}
+}
