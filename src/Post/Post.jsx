@@ -2,9 +2,34 @@ import styles from "./blogStyle.module.css";
 import { parseISO, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import PostPlaceholder from "./PostPlaceholder";
 
-export default function Post({ post }) {
+export default function Post() {
+	const { blogtitle } = useParams();
+
 	const [relativeTime, setRelativeTime] = useState("");
+	const [post, setPost] = useState(null);
+	const [error, setError] = useState(null);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		async function fetchPost() {
+			try {
+				const res = await fetch(
+					`https://blogpessoal-zdcv.onrender.com/postagens/urlPath/${blogtitle}`
+				);
+				if (!res.ok) {
+					throw new Error("Post not found");
+				}
+				const data = await res.json();
+				setPost(data);
+			} catch (error) {
+				setError("Erro");
+			}
+		}
+		fetchPost();
+	}, [blogtitle]);
 
 	useEffect(() => {
 		if (post) {
@@ -19,10 +44,20 @@ export default function Post({ post }) {
 		}
 	}, [post]);
 
-	if (!post) return <p>Post not found.</p>;
+	if (error) {
+		return navigate("/404");
+	}
+
+	if (!post) {
+		return (
+			<div>
+				<PostPlaceholder />
+			</div>
+		);
+	}
 
 	return (
-		<>
+		<div className={styles.main}>
 			<main className={styles.mainblog}>
 				<div className={styles.headerblog}>
 					<p>{relativeTime}</p>
@@ -41,49 +76,24 @@ export default function Post({ post }) {
 					src={post.user.photo}
 					alt="User Profile"
 				/>
+
 				<div>
 					<p>
 						<b>Autor:</b> {post.user.name}
 					</p>
 					<p>
 						<b>Email: </b>
-						<a href={"mailto: " + post.user.email}> {post.user.email} </a>
+						<a href={"mailto:" + post.user.email}> {post.user.email} </a>
 					</p>
 					<p className={styles.userDescription}>
 						<i>
-							Sou uma pessoas apaixonada por criar projetos de tecnologia, sejam
+							Sou uma pessoa apaixonada por criar projetos de tecnologia, sejam
 							de programação, ou até de covers mixados de músicas de kpop que eu
 							gosto
 						</i>
 					</p>
 				</div>
 			</aside>
-		</>
+		</div>
 	);
-}
-
-export async function getServerSideProps(context) {
-	const { id } = context.query;
-
-	try {
-		const res = await fetch(
-			`https://blogpessoal-zdcv.onrender.com/postagens/urlPath/${id}`
-		);
-		if (!res.ok) {
-			throw new Error("Post not found");
-		}
-		const post = await res.json();
-
-		return {
-			props: {
-				post,
-			},
-		};
-	} catch (error) {
-		return {
-			props: {
-				post: null,
-			},
-		};
-	}
 }

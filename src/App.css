@@ -1,0 +1,5 @@
+body {
+	color: var(--text-content);
+	background-color: var(--background1);
+	font-family: Nunito, sans-serif;
+}

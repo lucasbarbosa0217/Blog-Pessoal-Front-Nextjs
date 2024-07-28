@@ -1,0 +1,124 @@
+.mainblog {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 2rem;
+	box-sizing: border-box;
+	background-color: var(--background3);
+}
+
+.main {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.headerblog {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.8rem;
+	color: var(--text-detail);
+}
+
+.divider {
+	flex-grow: 1;
+	height: 0.0625rem;
+	background-color: var(--text-detail);
+}
+
+.userPost {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem;
+	box-sizing: border-box;
+	background-color: var(--background2);
+}
+
+.userImage {
+	flex-grow: 1;
+	flex-shring: 0;
+	width: 6.25rem;
+	height: 6.25rem;
+
+	border-radius: 1000rem;
+}
+
+.userDescription {
+	margin-top: 1rem;
+	font-size: 0.8rem;
+	color: var(--text-detail);
+}
+
+@media (max-width: 37.5rem) {
+	.mainblog {
+		padding: 1rem;
+	}
+
+	.userPost {
+		padding: 1rem;
+		gap: 1rem;
+		justify-content: center;
+	}
+}
+
+.time {
+	width: 20%;
+	height: 0.8rem;
+}
+
+.title {
+	width: 100%;
+	height: 2rem;
+}
+
+.text {
+	width: 100%;
+	height: 1.2rem;
+}
+
+.textshort {
+	width: 40%;
+	height: 1.2rem;
+}
+@keyframes blinker {
+	0% {
+		opacity: 20%;
+	}
+	50% {
+		opacity: 5%;
+	}
+	100% {
+		opacity: 20%;
+	}
+}
+.placeholder {
+	background-color: var(--basecolor);
+	animation: blinker 2s linear infinite;
+	pointer-events: none;
+}
+
+.postcontent {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.postuser {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.imagePlaceholder {
+	flex-grow: 0;
+	flex-shring: 0;
+	width: 6.25rem;
+	height: 6.25rem;
+	border-radius: 1000rem;
+}
