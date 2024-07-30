@@ -4,16 +4,48 @@
 	flex-direction: column;
 	gap: 2rem;
 	padding: 2rem;
+	flex-grow:1;
+	flex-shrink: 0;
 	box-sizing: border-box;
 	background-color: var(--background3);
 }
 
 .main {
-	width: 100%;
+	width:40rem;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
+
+
+@media (max-width: 55em) {
+.main {
+	width:100%;
+}
+
+.mainblog {
+	width:100%;
+}
+}
+
+@media (max-width: 38.75rem) {
+
+	.main{
+		padding:0;
+		margin:0;
+	}
+	.mainblog {
+		padding: 1rem;
+	}
+
+	.userPost {
+		padding: 1rem;
+		gap: 1rem;
+		justify-content: center;
+	}
+}
+
+
 
 .headerblog {
 	display: flex;
@@ -40,7 +72,6 @@
 }
 
 .userImage {
-	flex-grow: 1;
 	flex-shring: 0;
 	width: 6.25rem;
 	height: 6.25rem;
@@ -52,18 +83,6 @@
 	margin-top: 1rem;
 	font-size: 0.8rem;
 	color: var(--text-detail);
-}
-
-@media (max-width: 37.5rem) {
-	.mainblog {
-		padding: 1rem;
-	}
-
-	.userPost {
-		padding: 1rem;
-		gap: 1rem;
-		justify-content: center;
-	}
 }
 
 .time {

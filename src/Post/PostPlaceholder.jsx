@@ -5,27 +5,53 @@ const PostPlaceholder = () => (
 	<div className={styles.main}>
 		<main className={styles.mainblog}>
 			<div className={styles.headerblog}>
-				<div className={"" + styles.placeholder + " " + styles.time}>.</div>
+				<div className={`${styles.time} ${styles.placeholder}`}>
+					<p></p>
+				</div>
 				<div className={styles.divider}></div>
-				<div className={"" + styles.placeholder + " " + styles.time}>.</div>
+				<div className={`${styles.time} ${styles.placeholder}`}>
+					<p></p>
+				</div>
 			</div>
-			<div className={"" + styles.placeholder + " " + styles.title}>.</div>
-			<div className={styles.postcontent}>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.textshort}>
-					.
-				</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.text}>.</div>
-				<div className={"" + styles.placeholder + " " + styles.textshort}>
-					.
-				</div>
+			<div className={`${styles.title} ${styles.placeholder}`}>
+				<h1></h1>
+			</div>
+
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+
+			<div className={`${styles.textshort} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+
+			<div className={`${styles.textshort} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+			<div className={`${styles.text} ${styles.placeholder}`}>
+				<p></p>
+			</div>
+
+			<div className={`${styles.textshort} ${styles.placeholder}`}>
+				<p></p>
 			</div>
 		</main>
 		<aside className={styles.userPost}>
@@ -42,6 +68,6 @@ const PostPlaceholder = () => (
 			</div>
 		</aside>
 	</div>
-)
+);
 
 export default PostPlaceholder
